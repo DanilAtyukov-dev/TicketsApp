@@ -23,3 +23,4 @@ rootProject.name = "TicketsApp"
 include(":app")
 include(":domain")
 include(":data")
+include(":presentation")
