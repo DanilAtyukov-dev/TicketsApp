@@ -7,6 +7,6 @@ interface OffersRepository {
     /**
      *
      */
-    suspend fun loadOffers()
+    suspend fun loadOffers(): Pair<Boolean, Offers?>
 
 }
