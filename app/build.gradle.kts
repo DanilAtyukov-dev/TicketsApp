@@ -38,6 +38,10 @@ android {
 dependencies {
     implementation(project(":presentation"))
     implementation(project(":data"))
+    implementation(project(":domain"))
+    
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
 
     implementation(libs.androidx.core.ktx)
@@ -45,7 +49,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(project(":domain"))
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

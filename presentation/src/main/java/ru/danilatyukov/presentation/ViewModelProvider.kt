@@ -1,5 +1,5 @@
 package ru.danilatyukov.presentation
 
-interface ProvideViewModel {
+interface ViewModelProvider {
     fun mainViewModel() : MainViewModel
 }

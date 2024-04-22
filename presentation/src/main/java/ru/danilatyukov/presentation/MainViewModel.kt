@@ -24,12 +24,8 @@ class MainViewModel(
         viewmodelScope.launch {
            val offers = repository.loadOffers().second
 
-
-
             if (offers != null) {
-                if (offers.offers != null) {
-                    innerLiveData.value = offers.offers[0].title
-                }
+                innerLiveData.value = offers.offers[0].title
             }
         }
     }
