@@ -17,4 +17,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ru.danilatyukov.presentation.offerView.OfferView
+        android:id="@+id/offer1"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        app:img="@drawable/notsample"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Die Antwoord"
+        app:price="20р"
+        app:city="Будапешт"
+        app:transport="@drawable/airplane"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

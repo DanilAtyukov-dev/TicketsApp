@@ -14,16 +14,13 @@ class MainViewModel(
 ) :ViewModel() {
     private val innerLiveData = MutableLiveData<String>()
 
-
     val liveData: LiveData<String>
         get() = innerLiveData
-
 
     private val viewmodelScope = CoroutineScope(SupervisorJob()+Dispatchers.Main.immediate)
     fun loadOffers() {
         viewmodelScope.launch {
            val offers = repository.loadOffers().second
-
             if (offers != null) {
                 innerLiveData.value = offers.offers[0].title
             }

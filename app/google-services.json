@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "171392386212",
+    "firebase_url": "https://twins-68a20-default-rtdb.firebaseio.com",
+    "project_id": "twins-68a20",
+    "storage_bucket": "twins-68a20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171392386212:android:cbdcfa25542ccd8af99231",
+        "android_client_info": {
+          "package_name": "com.danilatyukov.twin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT5lNctHwEtbExjyx_c_H2zBkaBw7ArWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

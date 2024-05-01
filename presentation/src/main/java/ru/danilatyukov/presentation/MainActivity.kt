@@ -14,5 +14,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.liveData.observe(this) {
             binding.mainTV.text = it
         }
+
+
+
     }
 }

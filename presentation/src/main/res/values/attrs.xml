@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OfferView">
+        <attr name="img" format="integer" />
+        <attr name="title" format="string" />
+        <attr name="city" format="string"/>
+        <attr name="price" format="string"/>
+        <attr name="transport" format="integer"/>
+    </declare-styleable>
+</resources>
