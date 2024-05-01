@@ -11,11 +11,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val viewModel = (application as ViewModelProvider).mainViewModel()
         viewModel.loadOffers()
+
         viewModel.liveData.observe(this) {
             binding.mainTV.text = it
         }
-
-
-
     }
 }
