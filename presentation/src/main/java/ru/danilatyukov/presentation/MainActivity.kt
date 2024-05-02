@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.loadOffers()
 
         viewModel.liveData.observe(this) {
-            binding.mainTV.text = it
+            //binding.mainTV.text = it
         }
     }
 }
