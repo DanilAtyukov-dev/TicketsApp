@@ -10,10 +10,28 @@
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true"
             app:destination="@id/mainFragment" />
     </fragment>
+
+
     <fragment
         android:id="@+id/mainFragment"
         android:name="ru.danilatyukov.presentation.screens.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <argument
+            android:name="usernameKey"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="ru.danilatyukov.presentation.screens.SearchFragment"
+        android:label="SearchFragment" />
 </navigation>

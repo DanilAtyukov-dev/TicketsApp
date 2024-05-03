@@ -8,6 +8,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
+
+
         setContentView(binding.root)
         val viewModel = (application as ViewModelProvider).mainViewModel()
         viewModel.loadOffers()
