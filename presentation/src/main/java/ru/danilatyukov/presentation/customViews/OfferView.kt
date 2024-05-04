@@ -1,9 +1,8 @@
-package ru.danilatyukov.presentation.offerView
+package ru.danilatyukov.presentation.customViews
 
 import android.content.Context
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.util.AttributeSet
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
@@ -24,7 +23,6 @@ class OfferView(context: Context) : LinearLayout(context) {
 
     init {
         orientation = VERTICAL
-
 
         //setPictureIV
         picture.scaleType = (ScaleType.CENTER_CROP)
@@ -67,5 +65,7 @@ class OfferView(context: Context) : LinearLayout(context) {
         transportIcon.setImageDrawable(res.getDrawable(transport.iconId))
     }
 
-
+    enum class TransportIcon(val iconId: Int) {
+        Airplane(R.drawable.airplane)
+    }
 }

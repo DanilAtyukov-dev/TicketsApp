@@ -4,4 +4,5 @@
      <dimen name="offer_title_size">6sp</dimen>
      <dimen name="offer_city_size">5sp</dimen>
      <dimen name="offer_price_size">5sp</dimen>
+    <dimen name="travel_direction_selector_radius">15dp</dimen>
 </resources>
