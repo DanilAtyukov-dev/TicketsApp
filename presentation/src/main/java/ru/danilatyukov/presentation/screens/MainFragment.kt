@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.danilatyukov.presentation.R
 import ru.danilatyukov.presentation.databinding.FragmentMainBinding
 
+
 class MainFragment: Fragment(R.layout.fragment_main) {
     companion object{
         const val userNameKey = "USER_NAME"
@@ -22,6 +23,7 @@ class MainFragment: Fragment(R.layout.fragment_main) {
             val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             val navController = (childFragmentManager.findFragmentById(R.id.mainContainerView) as NavHostFragment).navController
             NavigationUI.setupWithNavController(bottomNavigationView, navController)
+
 
     }
 }

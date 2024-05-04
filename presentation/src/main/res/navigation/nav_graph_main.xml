@@ -2,15 +2,27 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_main"
-    app:startDestination="@id/ticketsFragment">
+    app:startDestination="@id/navigation2">
 
     <fragment
         android:id="@+id/hotelsFragment"
         android:name="ru.danilatyukov.presentation.screens.hotels.HotelsFragment"
         android:label="HotelsFragment" />
 
-    <fragment
-        android:id="@+id/ticketsFragment"
-        android:name="ru.danilatyukov.presentation.screens.tickets.TicketsFragment"
-        android:label="TicketsFragment" />
+    <navigation
+        android:id="@+id/navigation2"
+        app:startDestination="@id/ticketsFragment">
+        <fragment
+            android:id="@+id/travelDestinationFragment"
+            android:name="ru.danilatyukov.presentation.screens.tickets.TravelDestinationFragment"
+            android:label="TravelDestinationFragment" />
+        <fragment
+            android:id="@+id/ticketsFragment"
+            android:name="ru.danilatyukov.presentation.screens.tickets.TicketsFragment"
+            android:label="TicketsFragment">
+            <action
+                android:id="@+id/action_ticketsFragment_to_travelDestinationFragment"
+                app:destination="@id/travelDestinationFragment" />
+        </fragment>
+    </navigation>
 </navigation>
