@@ -13,76 +13,65 @@ import ru.danilatyukov.presentation.R
 
 
 class TravelDirectionSelector(context: Context, attrs: AttributeSet) : CardView(context, attrs) {
-    val verticalLinearLayout = LinearLayout(context)
+    val linearEditTexts = LinearLayout(context)
 
-    val horizontalLinearLayout = LinearLayout(context)
+    val horLinearCommon = LinearLayout(context)
 
     val searchIconImageView = ImageView(context)
 
-    val res = context.resources
+    val editTextWhereFrom = EditText(context)
 
-    val fromLayout = LinearLayout(context)
-    val fromET = EditText(context)
-
-
-    val toLayout = LinearLayout(context)
-    val toET = EditText(context)
+    val editTextWhereTo = EditText(context)
 
     init {
-        radius = res.getDimension(R.dimen.travel_direction_selector_radius)
+        radius = resources.getDimension(R.dimen.travel_direction_selector_radius)
 
-        val imageIconDrawable = res.getDrawable(R.drawable.search)
-        imageIconDrawable.setTint(res.getColor(R.color.black))
+        val imageIconDrawable = resources.getDrawable(R.drawable.search)
+        imageIconDrawable.setTint(resources.getColor(R.color.black))
 
         searchIconImageView.setImageDrawable(imageIconDrawable)
-        val searchIconImageViewParams = LayoutParams(LayoutParams.WRAP_CONTENT,
-            LayoutParams.WRAP_CONTENT)
+        val searchIconImageViewParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         searchIconImageViewParams.setMargins(30, 0, 30, 0)
         searchIconImageView.layoutParams = searchIconImageViewParams
 
-        verticalLinearLayout.orientation = LinearLayout.VERTICAL
+        linearEditTextsInit()
+        editTextWhereFromInit()
+        editTextWhereToInit()
+        linearCommonInit()
+        this.addView(horLinearCommon)
+    }
+    private fun linearCommonInit(){
+        horLinearCommon.gravity = Gravity.CENTER_VERTICAL
+        horLinearCommon.addView(searchIconImageView)
+        horLinearCommon.addView(linearEditTexts)
+    }
 
-        fromET.hint = "Минск"
-        fromET.background = null
-
-        fromLayout.addView(fromET)
-
-        layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-
+    private fun linearEditTextsInit(){
         val divider = View(context)
-        divider.setBackgroundColor(res.getColor(R.color.gray7))
+        divider.setBackgroundColor(resources.getColor(R.color.gray6))
         divider.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, 2)
 
-        toET.hint = "Куда - Турция"
-        toET.background = null
-        toLayout.addView(toET)
-
-
-        verticalLinearLayout.addView(fromLayout)
-
-        verticalLinearLayout.addView(divider)
-
-        verticalLinearLayout.addView(toLayout)
-
-        horizontalLinearLayout.gravity = Gravity.CENTER_VERTICAL
-
-
-
-        horizontalLinearLayout.addView(searchIconImageView)
-        horizontalLinearLayout.addView(verticalLinearLayout)
-
-
-        this.addView(horizontalLinearLayout)
+        linearEditTexts.orientation = LinearLayout.VERTICAL
+        linearEditTexts.addView(editTextWhereFrom)
+        linearEditTexts.addView(divider)
+        linearEditTexts.addView(editTextWhereTo)
     }
 
-    fun fromSetOnClickListener(onClickListener: OnClickListener) {
-        fromET.setOnClickListener(onClickListener)
+    private fun editTextWhereFromInit(){
+        editTextWhereFrom.hint = resources.getString(R.string.WhereFrom)
+        editTextWhereFrom.background = null
     }
 
-    fun toSetOnClickListener(onClickListener: OnClickListener) {
-        toET.setOnClickListener(onClickListener)
+    private fun editTextWhereToInit(){
+        editTextWhereTo.hint = resources.getString(R.string.WhereTo)
+        editTextWhereTo.background = null
+    }
+
+    public fun setWhereFromListener(onClickListener: OnClickListener) {
+        editTextWhereFrom.setOnClickListener(onClickListener)
+    }
+
+   public fun setWhereToListener(onClickListener: OnClickListener) {
+        editTextWhereTo.setOnClickListener(onClickListener)
     }
 }
