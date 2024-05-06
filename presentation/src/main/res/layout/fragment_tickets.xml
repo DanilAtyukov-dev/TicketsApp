@@ -4,26 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:cardCornerRadius="@dimen/travel_direction_selector_radius"
+
+    <ru.danilatyukov.presentation.customViews.DoubleEditText
+        android:layout_width="2dp"
+        android:layout_height="1dp"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ru.danilatyukov.presentation.customViews.TravelDirectionSelector
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:elevation="100000dp"
-
-            app:cardElevation="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

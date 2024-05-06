@@ -7,4 +7,6 @@
         <attr name="price" format="string"/>
         <attr name="transport" format="integer"/>
     </declare-styleable>
+
+
 </resources>
