@@ -5,11 +5,26 @@
     android:layout_height="match_parent">
 
 
-    <ru.danilatyukov.presentation.customViews.DoubleEditText
-        android:layout_width="2dp"
-        android:layout_height="1dp"
-        android:layout_margin="20dp"
+    <ru.danilatyukov.presentation.customViews.DoubleSearchView
+        android:id="@+id/doubleSearchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mode="third"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:visibilityCloseIcon="true"
+        app:visibilityReversIcon="true"
+        app:visibilityLeftIcons="true"
+        />
+
+    <ru.danilatyukov.presentation.customViews.SearchView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/doubleSearchView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

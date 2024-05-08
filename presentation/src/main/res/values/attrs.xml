@@ -8,5 +8,15 @@
         <attr name="transport" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="DoubleSearchView">
+        <attr name="mode" format="enum">
+            <enum name="first" value="1"/>
+            <enum name="second" value="2"/>
+            <enum name="third" value="3"/>
+        </attr>
 
+        <attr name="visibilityLeftIcons" format="boolean"/>
+        <attr name="visibilityReversIcon" format="boolean"/>
+        <attr name="visibilityCloseIcon" format="boolean"/>
+    </declare-styleable>
 </resources>
