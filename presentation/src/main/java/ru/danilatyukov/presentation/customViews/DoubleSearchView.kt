@@ -98,7 +98,7 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
                     val hint1 = getString(R.styleable.DoubleSearchView_firstHint)
                     val hint2 = getString(R.styleable.DoubleSearchView_secondHint)
                     if (hint1 != null) firstHint = hint1
-                    if (hint1 != null) secondHint = hint1
+                    if (hint2 != null) secondHint = hint2
                 } finally {
                     recycle()
                 }

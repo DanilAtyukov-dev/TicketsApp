@@ -1,9 +1,12 @@
 package ru.danilatyukov.presentation.screens.tickets
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -28,6 +31,8 @@ class TravelDestinationFragment: BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val constraintLayout = binding!!.coordinator
+        constraintLayout.minimumHeight = Resources.getSystem().displayMetrics.heightPixels
     }
 
     override fun onDestroy() {
