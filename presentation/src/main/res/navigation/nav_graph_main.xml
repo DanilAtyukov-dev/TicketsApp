@@ -12,17 +12,19 @@
     <navigation
         android:id="@+id/nav_graph_tickets"
         app:startDestination="@id/ticketsFragment">
-        <fragment
+        <dialog
             android:id="@+id/travelDestinationFragment"
             android:name="ru.danilatyukov.presentation.screens.tickets.TravelDestinationFragment"
             android:label="TravelDestinationFragment" />
+
         <fragment
             android:id="@+id/ticketsFragment"
             android:name="ru.danilatyukov.presentation.screens.tickets.TicketsFragment"
             android:label="TicketsFragment">
             <action
                 android:id="@+id/action_ticketsFragment_to_travelDestinationFragment"
-                app:destination="@id/travelDestinationFragment" />
+                app:destination="@id/travelDestinationFragment"
+                 />
         </fragment>
     </navigation>
 </navigation>

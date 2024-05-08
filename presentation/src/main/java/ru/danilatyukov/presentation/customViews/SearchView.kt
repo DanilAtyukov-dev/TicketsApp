@@ -69,6 +69,10 @@ class SearchView(context: Context, attrs: AttributeSet?) : LinearLayout(context,
         })
     }
 
+    public fun setHint(hint: String){
+        editText.hint = hint
+    }
+
     public fun setText(string: String){
         editText.setText(string)
     }

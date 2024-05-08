@@ -6,20 +6,24 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.core.content.res.ResourcesCompat
 import ru.danilatyukov.presentation.R
 
 class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
     LinearLayout(context, attributeSet) {
     constructor(context: Context) : this(context, null)
 
-    val reverseIcon = resources.getDrawable(R.drawable.reverse)
-    val closeIcon = resources.getDrawable(R.drawable.close)
-    val planeUpIcon = resources.getDrawable(R.drawable.plane_up)
-    val searchIcon = resources.getDrawable(R.drawable.search)
+    val reverseIcon = ResourcesCompat.getDrawable(resources, R.drawable.reverse, context.theme)!!
+    val closeIcon = ResourcesCompat.getDrawable(resources, R.drawable.close, context.theme)!!
+    val planeUpIcon = ResourcesCompat.getDrawable(resources, R.drawable.plane_up, context.theme)!!
+    val searchIcon = ResourcesCompat.getDrawable(resources, R.drawable.search, context.theme)!!
+
 
     private var leftIconsVisibility = false
     private var reversIconVisibility = false
     private var closeIconVisibility = false
+    private var firstHint = "text"
+    private var secondHint = "text"
 
     private var focusedSearchView: SearchView? = null
     private var firstText = ""
@@ -29,6 +33,14 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
     val searchViewFirst = SearchView(context)
     val searchViewSecond = SearchView(context)
     val divider = View(context)
+
+    var firstSearchViewTextChangeListener: (newText: Editable?) -> Unit = {}
+    var secondSearchViewTextChangeListener: (newText: Editable?) -> Unit = {}
+
+    var secondSearchViewChangeFocusListener: (v: SearchView, hasFocus: Boolean) -> Unit =
+        { v, hasFocus -> }
+    var firstSearchViewChangeFocusListener: (v: SearchView, hasFocus: Boolean) -> Unit =
+        { v, hasFocus -> }
 
     init {
         tryInitFromXml()
@@ -44,18 +56,29 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
         setLeftIconsVisibility(leftIconsVisibility)
         setCloseIconVisibility(closeIconVisibility)
 
+        setFirstHint(firstHint)
+        setSecondHint(secondHint)
+
         addView(searchViewFirst)
         addView(divider)
         addView(searchViewSecond)
 
-        searchViewFirst.setTextChangedListener { s: Editable? -> firstText = s.toString() }
+        searchViewFirst.setTextChangedListener { s: Editable? ->
+            firstText = s.toString()
+            firstSearchViewTextChangeListener(s)
+        }
         searchViewFirst.setChangeFocusedListener { v, hasFocus ->
             if (hasFocus) focusedSearchView = v as SearchView
+            firstSearchViewChangeFocusListener(searchViewFirst, hasFocus)
         }
 
-        searchViewSecond.setTextChangedListener { s: Editable? -> secondText = s.toString() }
+        searchViewSecond.setTextChangedListener { s: Editable? ->
+            secondText = s.toString()
+            secondSearchViewTextChangeListener(s)
+        }
         searchViewSecond.setChangeFocusedListener { v, hasFocus ->
             if (hasFocus) focusedSearchView = v as SearchView
+            secondSearchViewChangeFocusListener(searchViewSecond, hasFocus)
         }
     }
 
@@ -71,13 +94,18 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
                         getBoolean(R.styleable.DoubleSearchView_visibilityReversIcon, false)
                     closeIconVisibility =
                         getBoolean(R.styleable.DoubleSearchView_visibilityCloseIcon, false)
+
+                    val hint1 = getString(R.styleable.DoubleSearchView_firstHint)
+                    val hint2 = getString(R.styleable.DoubleSearchView_secondHint)
+                    if (hint1 != null) firstHint = hint1
+                    if (hint1 != null) secondHint = hint1
                 } finally {
                     recycle()
                 }
             }
     }
 
-    private fun setDivider(){
+    private fun setDivider() {
         divider.setBackgroundColor(resources.getColor(R.color.gray6))
         divider.layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, 2)
     }
@@ -94,6 +122,7 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
         searchViewFirst.setLeftIconDrawable(planeUpIcon)
         searchViewSecond.setLeftIconDrawable(searchIcon)
     }
+
     private fun setReversButtonOnClickListener() {
         searchViewFirst.setButtonOnClickListener {
             val firstText = this.secondText
@@ -116,7 +145,16 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
     public fun setReversIconVisibility(boolean: Boolean) {
         searchViewFirst.setRightIconVisibility(if (boolean) VISIBLE else GONE)
     }
+
     public fun setCloseIconVisibility(boolean: Boolean) {
         searchViewSecond.setRightIconVisibility(if (boolean) VISIBLE else GONE)
+    }
+
+    public fun setFirstHint(hint: String) {
+        searchViewFirst.setHint(hint)
+    }
+
+    public fun setSecondHint(hint: String) {
+        searchViewSecond.setHint(hint)
     }
 }

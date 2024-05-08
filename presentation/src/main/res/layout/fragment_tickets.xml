@@ -5,28 +5,47 @@
     android:layout_height="match_parent">
 
 
-    <ru.danilatyukov.presentation.customViews.DoubleSearchView
-        android:id="@+id/doubleSearchView"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:mode="third"
+        app:cardCornerRadius="@dimen/travel_direction_selector_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        app:visibilityCloseIcon="true"
-        app:visibilityReversIcon="true"
-        app:visibilityLeftIcons="true"
-        />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="@dimen/travel_direction_selector_radius">
 
-    <ru.danilatyukov.presentation.customViews.SearchView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/doubleSearchView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/search"
+                    app:tint="@color/black" />
+
+                <ru.danilatyukov.presentation.customViews.DoubleSearchView
+                    android:id="@+id/doubleSearchView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="5dp"
+                    app:firstHint="@string/WhereFrom"
+                    app:secondHint="@string/WhereTo"
+                    app:visibilityCloseIcon="false"
+                    app:visibilityLeftIcons="false"
+                    app:visibilityReversIcon="false" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

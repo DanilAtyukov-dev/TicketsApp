@@ -18,5 +18,8 @@
         <attr name="visibilityLeftIcons" format="boolean"/>
         <attr name="visibilityReversIcon" format="boolean"/>
         <attr name="visibilityCloseIcon" format="boolean"/>
+        
+        <attr name="firstHint" format="string"/>
+        <attr name="secondHint" format="string"/>
     </declare-styleable>
 </resources>
