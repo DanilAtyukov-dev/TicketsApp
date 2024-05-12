@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="splash_fragment">Билеты</string>
+    <string name="tickets">Билеты</string>
+    <string name="hotels">Отели</string>
+    <string name="WhereFrom">откуда</string>
+    <string name="WhereTo">куда</string>
+    <string name="title">Поиск дешевых\nавиабилетов</string>
+    <string name="soar_musically">Музыкально отлететь</string>
+</resources>

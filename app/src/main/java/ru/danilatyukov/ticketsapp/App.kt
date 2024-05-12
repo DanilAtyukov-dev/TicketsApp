@@ -10,10 +10,12 @@ import ru.danilatyukov.data.apiKey
 import ru.danilatyukov.domain.OffersRepository
 import ru.danilatyukov.presentation.MainViewModel
 import ru.danilatyukov.presentation.ViewModelProvider
+import ru.danilatyukov.presentation.screens.tickets.TicketsFragmentViewModel
 
 class App : Application(), ViewModelProvider {
 
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var ticketsFragmentViewModel: TicketsFragmentViewModel
     override fun onCreate() {
         super.onCreate()
 
@@ -24,7 +26,8 @@ class App : Application(), ViewModelProvider {
                 OkHttpClient.Builder()
                     .addInterceptor { chain ->
                         val request = chain.request().newBuilder()
-                        val originalHttpUrl = chain.request().url()
+                            .addHeader("Authorization", apiKey)
+                        val originalHttpUrl = chain.request().url
                         val url = originalHttpUrl
                             .newBuilder()
                             .addQueryParameter("alt", "media")
@@ -38,9 +41,14 @@ class App : Application(), ViewModelProvider {
 
         val offersRepository: OffersRepository = OfferRepositoryImpl(offersService)
         mainViewModel = MainViewModel(repository = offersRepository)
+
+        ticketsFragmentViewModel = TicketsFragmentViewModel(offersRepository)
     }
 
     override fun mainViewModel(): MainViewModel {
         return mainViewModel
+    }
+    override fun ticketsFragmentViewModel(): TicketsFragmentViewModel {
+        return ticketsFragmentViewModel
     }
 }

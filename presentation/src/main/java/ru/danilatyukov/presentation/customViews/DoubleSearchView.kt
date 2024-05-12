@@ -107,7 +107,7 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
 
     private fun setDivider() {
         divider.setBackgroundColor(resources.getColor(R.color.gray6))
-        divider.layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, 2)
+        divider.layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, 3)
     }
 
     private fun setRightIconsDrawables() {

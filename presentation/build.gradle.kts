@@ -25,7 +25,6 @@ android {
 
     buildTypes {
 
-
         release {
 
             isMinifyEnabled = false
@@ -34,8 +33,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-
-
 
     }
     compileOptions {
@@ -55,6 +52,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    implementation(libs.coil)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
