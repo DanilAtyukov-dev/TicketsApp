@@ -10,7 +10,7 @@ import ru.danilatyukov.data.apiKey
 import ru.danilatyukov.domain.OffersRepository
 import ru.danilatyukov.presentation.MainViewModel
 import ru.danilatyukov.presentation.ViewModelProvider
-import ru.danilatyukov.presentation.screens.tickets.TicketsFragmentViewModel
+import ru.danilatyukov.presentation.screens.tickets.main.TicketsFragmentViewModel
 
 class App : Application(), ViewModelProvider {
 

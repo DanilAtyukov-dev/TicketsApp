@@ -7,4 +7,5 @@
     <string name="WhereTo">куда</string>
     <string name="title">Поиск дешевых\nавиабилетов</string>
     <string name="soar_musically">Музыкально отлететь</string>
+    <string name="start_price">от</string>
 </resources>

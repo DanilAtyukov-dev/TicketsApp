@@ -1,4 +1,4 @@
-package ru.danilatyukov.presentation.screens.tickets
+package ru.danilatyukov.presentation.screens.tickets.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package ru.danilatyukov.presentation.screens.tickets
+package ru.danilatyukov.presentation.screens.tickets.destination
 
 import androidx.lifecycle.ViewModel
 

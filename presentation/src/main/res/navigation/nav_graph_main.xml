@@ -14,12 +14,12 @@
         app:startDestination="@id/ticketsFragment">
         <dialog
             android:id="@+id/travelDestinationFragment"
-            android:name="ru.danilatyukov.presentation.screens.tickets.TravelDestinationFragment"
+            android:name="ru.danilatyukov.presentation.screens.tickets.destination.TravelDestinationFragment"
             android:label="TravelDestinationFragment" />
 
         <fragment
             android:id="@+id/ticketsFragment"
-            android:name="ru.danilatyukov.presentation.screens.tickets.TicketsFragment"
+            android:name="ru.danilatyukov.presentation.screens.tickets.main.TicketsFragment"
             android:label="TicketsFragment">
             <action
                 android:id="@+id/action_ticketsFragment_to_travelDestinationFragment"

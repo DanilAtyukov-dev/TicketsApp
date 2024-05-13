@@ -1,6 +1,6 @@
 package ru.danilatyukov.presentation
 
-import ru.danilatyukov.presentation.screens.tickets.TicketsFragmentViewModel
+import ru.danilatyukov.presentation.screens.tickets.main.TicketsFragmentViewModel
 
 interface ViewModelProvider {
     fun mainViewModel() : MainViewModel

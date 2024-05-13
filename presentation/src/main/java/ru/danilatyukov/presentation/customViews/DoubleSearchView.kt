@@ -41,6 +41,9 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
         { v, hasFocus -> }
     var firstSearchViewChangeFocusListener: (v: SearchView, hasFocus: Boolean) -> Unit =
         { v, hasFocus -> }
+    var changeFocusListener: (v: SearchView, hasFocus: Boolean) -> Unit =
+        { v, hasFocus -> }
+
 
     init {
         tryInitFromXml()
@@ -75,10 +78,12 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
         searchViewSecond.setTextChangedListener { s: Editable? ->
             secondText = s.toString()
             secondSearchViewTextChangeListener(s)
+            changeFocusListener(searchViewFirst, hasFocus())
         }
         searchViewSecond.setChangeFocusedListener { v, hasFocus ->
             if (hasFocus) focusedSearchView = v as SearchView
             secondSearchViewChangeFocusListener(searchViewSecond, hasFocus)
+            changeFocusListener(searchViewSecond, hasFocus)
         }
     }
 
@@ -106,19 +111,19 @@ class DoubleSearchView(context: Context, val attributeSet: AttributeSet?) :
     }
 
     private fun setDivider() {
-        divider.setBackgroundColor(resources.getColor(R.color.gray6))
+        divider.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.gray6, context.theme))
         divider.layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, 3)
     }
 
     private fun setRightIconsDrawables() {
-        reverseIcon.setTint(resources.getColor(R.color.gray6))
-        closeIcon.setTint(resources.getColor(R.color.gray6))
+        reverseIcon.setTint(ResourcesCompat.getColor(resources, R.color.gray6, context.theme))
+        closeIcon.setTint(ResourcesCompat.getColor(resources, R.color.gray6, context.theme))
         searchViewFirst.setButtonDrawable(reverseIcon)
         searchViewSecond.setButtonDrawable(closeIcon)
     }
 
     private fun setLeftIconsDrawables() {
-        searchIcon.setTint(resources.getColor(R.color.blue))
+        searchIcon.setTint(ResourcesCompat.getColor(resources, R.color.blue, context.theme))
         searchViewFirst.setLeftIconDrawable(planeUpIcon)
         searchViewSecond.setLeftIconDrawable(searchIcon)
     }

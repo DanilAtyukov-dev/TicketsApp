@@ -7,4 +7,6 @@
     <string name="WhereTo">Where to</string>
     <string name="title">Search for cheap \nairline tickets</string>
     <string name="soar_musically">Soar musically</string>
+    <string name="start_price">from</string>
+    <string name="show_all_locations">Show all locations</string>
 </resources>

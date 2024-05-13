@@ -9,6 +9,6 @@ interface  OffersService {
 
     //https://drive.google.com/file/d/1o1nX3uFISrG1gR-jr_03Qlu4_KEZWhav
     @Streaming
-    @GET("1o1nX3uFISrG1gR-jr_03Qlu4_KEZWhav")
+    @GET("1S1bkw54-X_qU5mnEsyx6Np8Fhg00-zUd")
     suspend fun offers(): Offers
 }

@@ -4,7 +4,6 @@
     android:layout_height="wrap_content">
     <ru.danilatyukov.presentation.customViews.OfferView
         android:id="@+id/offer_view"
-        android:layout_marginEnd="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </FrameLayout>

@@ -29,7 +29,8 @@ class OfferView(context: Context, attributeSet: AttributeSet) : LinearLayout(con
 
         //setPictureIV
         picture.scaleType = (ScaleType.CENTER_CROP)
-        picture.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+
+        picture.layoutParams = LayoutParams(500,500, 1f)
 
 
         pictureCard.radius = resources.getDimension(R.dimen.offer_card_rounded)
@@ -53,8 +54,6 @@ class OfferView(context: Context, attributeSet: AttributeSet) : LinearLayout(con
         priceRow.addView(transportIcon)
         priceRow.addView(priceTv)
         addView(priceRow)
-
-
     }
 
 
@@ -70,11 +69,8 @@ class OfferView(context: Context, attributeSet: AttributeSet) : LinearLayout(con
     }
 
     public fun setImage(url: String){
-
         picture.load(url){
             crossfade(true)
-            error(ResourcesCompat.getDrawable(resources, R.drawable.notsample, context.theme))
-            placeholder(R.drawable.search)
         }
     }
 

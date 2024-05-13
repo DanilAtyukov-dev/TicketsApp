@@ -1,16 +1,12 @@
-package ru.danilatyukov.presentation.screens.tickets
+package ru.danilatyukov.presentation.screens.tickets.destination
 
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.res.ResourcesCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import ru.danilatyukov.presentation.R
 import ru.danilatyukov.presentation.databinding.FragmentTravelDestinationBinding
 
 class TravelDestinationFragment: BottomSheetDialogFragment() {
