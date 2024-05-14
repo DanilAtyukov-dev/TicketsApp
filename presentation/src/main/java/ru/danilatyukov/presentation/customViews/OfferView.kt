@@ -11,6 +11,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.marginBottom
+import androidx.core.view.marginEnd
+import androidx.core.view.marginTop
 import coil.load
 import ru.danilatyukov.presentation.R
 import java.io.File
@@ -44,8 +47,12 @@ class OfferView(context: Context, attributeSet: AttributeSet) : LinearLayout(con
         addView(titleTv)
 
         //setCityTV
+        val cityLP = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+        cityLP.setMargins(0, 15, 0, 15)
         cityTv.textSize = resources.getDimension(R.dimen.offer_city_size)
+        cityTv.layoutParams = cityLP
         addView(cityTv)
+
 
         //setPriceTV
         transportIcon.scaleType = (ScaleType.CENTER_CROP)
